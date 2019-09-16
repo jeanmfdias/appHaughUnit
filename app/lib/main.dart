@@ -8,7 +8,11 @@ class MinhaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('Unidade Haugh')
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Unidade Haugh')
+        )
+      )
     );
   }
 }
