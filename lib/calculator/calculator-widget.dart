@@ -7,6 +7,11 @@ class CalculatorWidget extends StatefulWidget {
 
 class _CalculatorWidget extends State<CalculatorWidget> {
 
+  final height = TextEditingController();
+  final weight = TextEditingController();
+
+  var _calc = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,13 +26,22 @@ class _CalculatorWidget extends State<CalculatorWidget> {
 
           children: [
             Text('Digite o peso do ovo em gramas:'),
-            TextField(),
+            TextField(
+              controller: height,
+            ),
             Text('Digite a altura do ovo em milimetros: '),
-            TextField(),
+            TextField(
+              controller: weight,
+            ),
             RaisedButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  _calc = int.tryParse(height.text) + int.tryParse(weight.text);
+                });
+              },
               child: Text('Calcular')
-            )
+            ),
+            Text('Resultado é: ${_calc}')
           ],
         ),
 
